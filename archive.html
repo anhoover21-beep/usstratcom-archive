@@ -55,7 +55,33 @@
       opacity: 0.6;
     }
 
-    /* GLITCH OVERLAY */
+    /* GLITCH EFFECT */
+
+    .glitching {
+      animation: glitchShake 0.1s infinite;
+    }
+
+    @keyframes glitchShake {
+      0% { transform: translate(1px, -1px); }
+      25% { transform: translate(-1px, 1px); }
+      50% { transform: translate(1px, 1px); }
+      75% { transform: translate(-1px, -1px); }
+      100% { transform: translate(0px, 0px); }
+    }
+
+    .flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* OVERLAY */
 
     #glitchOverlay {
       position: fixed;
@@ -94,7 +120,7 @@
 
 <body>
 
-<div class="wrapper">
+<div class="wrapper" id="archiveContent">
 
   <h1>AMBER CLEARANCE CONFIRMED</h1>
   <div class="subhead">INTERNAL DISTRIBUTION ONLY</div>
@@ -126,36 +152,58 @@
 
 </div>
 
-<!-- GLITCH OVERLAY -->
+<div class="flash" id="flash"></div>
+
 <div id="glitchOverlay">
   <div class="binaryRain" id="binaryRain"></div>
-  <div class="glitchText">
-    ARCHIVE NODE COMPROMISED<br><br>
-    THIS SITE HACKED BY PROJECT GREEN LIGHT
+  <div class="glitchText" id="glitchText">
+    ARCHIVE NODE COMPROMISED
   </div>
 </div>
 
 <script>
   function triggerGlitch() {
+    const content = document.getElementById("archiveContent");
+    const flash = document.getElementById("flash");
     const overlay = document.getElementById("glitchOverlay");
     const rain = document.getElementById("binaryRain");
+    const text = document.getElementById("glitchText");
 
-    overlay.style.display = "block";
+    // Phase 1: screen instability
+    content.classList.add("glitching");
 
-    let binary = "";
-    for (let i = 0; i < 7000; i++) {
-      binary += Math.random() > 0.5 ? "1" : "0";
-      if (i % 70 === 0) binary += "\n";
-    }
+    // Random flashes
+    let flashCount = 0;
+    const flashInterval = setInterval(() => {
+      flash.style.opacity = "0.8";
+      setTimeout(() => flash.style.opacity = "0", 80);
+      flashCount++;
+      if (flashCount > 6) {
+        clearInterval(flashInterval);
+      }
+    }, 150);
 
-    rain.textContent = binary;
+    // After instability, go full takeover
+    setTimeout(() => {
+      content.classList.remove("glitching");
+      overlay.style.display = "block";
 
-    setTimeout(function () {
-      overlay.style.display = "none";
-    }, 6000);
+      // Change message after short delay
+      setTimeout(() => {
+        text.innerHTML = "THIS SITE HACKED BY PROJECT GREEN LIGHT";
+      }, 1500);
+
+      // Generate binary rain
+      let binary = "";
+      for (let i = 0; i < 8000; i++) {
+        binary += Math.random() > 0.5 ? "1" : "0";
+        if (i % 70 === 0) binary += "\n";
+      }
+      rain.textContent = binary;
+
+    }, 1200);
   }
 
-  // Wait before glitch triggers
   setTimeout(triggerGlitch, 3000);
 </script>
 
