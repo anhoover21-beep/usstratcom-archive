@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Green Light</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #00ff66;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 30px;
+    }
+
+    .post {
+      background: #111;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 3px solid #00ff66;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .gate {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid #00ff66;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      background: black;
+      border: 1px solid #00ff66;
+      color: #00ff66;
+      font-size: 14px;
+      margin-top: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      background: #00ff66;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 13px;
+      min-height: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>PROJECT GREEN LIGHT</h1>
+  <div class="subtitle">Independent Research Collective</div>
+
+  <div class="post">
+    They told you it was a weather balloon.
+    They told you it was Project Mogul.
+    They told you there were no bodies.
+    They told you the debris was mundane.
+  </div>
+
+  <div class="post">
+    But internal archive nodes don’t glitch for weather balloons.
+    Internal systems don’t redirect users by accident.
+    The official story is stable.
+    The truth is not.
+  </div>
+
+  <div class="post">
+    We intercepted restricted distribution materials.
+    Some files were recovered before purge protocols executed.
+  </div>
+
+  <div class="gate">
+    Restricted file access requires clearance phrase.<br>
+    <input type="password" id="codeInput" placeholder="Enter clearance phrase">
+    <button onclick="unlock()">ACCESS FILES</button>
+    <div class="message" id="message"></div>
+  </div>
+
+</div>
+
+<script>
+  function unlock() {
+    const input = document.getElementById("codeInput").value.trim().toUpperCase();
+    const message = document.getElementById("message");
+
+    if (input === "NOT A BALLOON") {
+      window.location.href = "spyphotos.html";
+    } else {
+      message.textContent = "Access denied.";
+    }
+  }
+</script>
+
+</body>
+</html>
