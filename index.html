@@ -1,24 +1,134 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>USSTRATCOM Archive</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USSTRATCOM Public Archive</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f6f9;
+      color: #1c1c1c;
+    }
+
+    header {
+      background-color: #002868;
+      color: white;
+      padding: 20px;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .agency {
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .title {
+      font-size: 22px;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #d6d9df;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 20px;
+      font-size: 14px;
+      color: #002868;
+    }
+
+    .nav-inner span {
+      margin-right: 20px;
+      cursor: default;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border: 1px solid #e2e5ea;
+      padding: 40px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #002868;
+    }
+
+    .redacted {
+      background: black;
+      color: black;
+      padding: 2px 8px;
+    }
+
+    .notice {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f1f3f7;
+      border-left: 4px solid #002868;
+      font-size: 14px;
+    }
+
+    .notice a {
+      color: #002868;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .notice a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-  <h1>UNITED STATES STRATEGIC COMMAND</h1>
-  <div>Office of Extraterrestrial Analysis</div>
+  <div class="header-inner">
+    <div class="agency">United States Strategic Command</div>
+    <div class="title">Office of Extraterrestrial Analysis</div>
+  </div>
 </header>
 
+<nav>
+  <div class="nav-inner">
+    <span>Home</span>
+    <span>Public Reports</span>
+    <span>Incident Files</span>
+    <span>Declassification Index</span>
+  </div>
+</nav>
+
 <div class="container">
+
   <h2>Incident File: NM-1947-RR</h2>
 
   <p>
-    On July <span class="redacted">████</span>, 1947, debris was recovered near Roswell, New Mexico.
-    Subsequent investigation determined materials were consistent with components
-    of a classified high-altitude surveillance array known as Project Mogul.
+    On July <span class="redacted">████</span>, 1947, debris was recovered in the vicinity of Roswell, New Mexico.
+    Subsequent analysis determined materials were consistent with components
+    of a classified high-altitude acoustic surveillance system known as Project Mogul.
   </p>
 
   <p>
@@ -26,14 +136,24 @@
     No biological entities were recovered.
   </p>
 
+  <p>
+    All documentation pertaining to this matter has been reviewed and archived
+    in accordance with federal disclosure standards.
+  </p>
+
   <div class="notice">
-    <strong>LEVEL 2 – AMBER CLEARANCE REQUIRED</strong><br><br>
-    Access to secondary archive materials is restricted.
-    Unauthorized entry prohibited under Title 50 U.S.C.<br><br>
+    <strong>Level 2 – Amber Clearance Materials</strong><br><br>
+    Certain supplemental documentation remains restricted under Title 50 U.S.C.
+    Access requires appropriate authorization designation.<br><br>
     <a href="amber.html">Request Amber Clearance Access</a>
   </div>
+
 </div>
+
+<footer>
+  United States Strategic Command – Public Information Archive<br>
+  Official Use Only
+</footer>
 
 </body>
 </html>
-
