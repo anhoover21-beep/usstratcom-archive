@@ -121,8 +121,6 @@ Some markings may not be fully legible.
 
 <div class="grid">
 
-  <!-- CHANGE FILENAMES BELOW TO MATCH YOUR IMAGES -->
-
   <div class="thumb">
     <img src="01_Incident_Report.png" onclick="openModal(this.src)">
   </div>
@@ -169,7 +167,6 @@ Some markings may not be fully legible.
 
 </div>
 
-
 <div class="footer">
 Distribution of these materials is not authorized.<br>
 Further releases pending verification.
@@ -188,11 +185,22 @@ Further releases pending verification.
 function openModal(src) {
   document.getElementById("modalImage").src = src;
   document.getElementById("imageModal").style.display = "block";
+
+  // Push a history state so back button closes modal first
+  history.pushState({modalOpen: true}, "");
 }
 
 function closeModal() {
   document.getElementById("imageModal").style.display = "none";
 }
+
+// Handle mobile back button
+window.onpopstate = function(event) {
+  const modal = document.getElementById("imageModal");
+  if (modal.style.display === "block") {
+    modal.style.display = "none";
+  }
+};
 </script>
 
 </body>
