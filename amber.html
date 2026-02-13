@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amber Access Node</title>
+  <title>Limited Distribution Archive – Authorization</title>
 
   <style>
     body {
       margin: 0;
-      background-color: #0a0f14;
+      background-color: #0e141b;
       color: #d9d9d9;
       font-family: "Courier New", monospace;
     }
@@ -22,28 +22,28 @@
       box-sizing: border-box;
     }
 
-    .terminal {
+    .node {
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
       border: 1px solid #1f2a35;
       padding: 30px;
-      background-color: #0d131a;
+      background-color: #111822;
     }
 
     .title {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 14px;
       letter-spacing: 1px;
+      margin-bottom: 5px;
     }
 
     .subtitle {
       font-size: 12px;
       opacity: 0.6;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .prompt {
-      font-size: 13px;
+      font-size: 12px;
       margin-bottom: 20px;
       line-height: 1.5;
     }
@@ -55,7 +55,7 @@
       color: #d9d9d9;
       padding: 12px;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 13px;
       box-sizing: border-box;
     }
 
@@ -63,15 +63,16 @@
       width: 100%;
       margin-top: 15px;
       padding: 12px;
-      background-color: #111a23;
+      background-color: #16222e;
       color: #d9d9d9;
       border: 1px solid #1f2a35;
       font-family: inherit;
       cursor: pointer;
+      font-size: 13px;
     }
 
     button:hover {
-      background-color: #16222e;
+      background-color: #1b2b39;
     }
 
     .message {
@@ -86,17 +87,17 @@
 <body>
 
 <div class="wrapper">
-  <div class="terminal">
+  <div class="node">
 
-    <div class="title">AMBER ACCESS NODE</div>
+    <div class="title">LIMITED DISTRIBUTION ARCHIVE</div>
     <div class="subtitle">LEVEL 2 AUTHORIZATION REQUIRED</div>
 
     <div class="prompt">
-      Enter official designation of authority pursuant to section P-55, 
-      Article L-18, sub-level W-1,2
+      Enter official designation of authority pursuant to
+      Section P-55, Article L-18, Sub-Section W-1,2.
     </div>
 
-    <input type="password" id="codeInput" placeholder="Designation required...">
+    <input type="password" id="codeInput" placeholder="Designation required">
     <button onclick="authorize()">AUTHORIZE</button>
 
     <div class="message" id="message"></div>
@@ -109,15 +110,15 @@
     const input = document.getElementById("codeInput").value.trim().toUpperCase();
     const message = document.getElementById("message");
 
-    message.textContent = "Verifying designation...";
+    message.textContent = "Verifying designation…";
 
     setTimeout(function() {
       if (input === "PROJECT MOGUL") {
         window.location.href = "archive.html";
       } else {
-        message.textContent = "Authorization Denied.";
+        message.textContent = "Authorization denied.";
       }
-    }, 1200);
+    }, 1000);
   }
 </script>
 
