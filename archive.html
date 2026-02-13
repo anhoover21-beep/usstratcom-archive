@@ -32,5 +32,37 @@
 
 </div>
 
+<!-- GLITCH OVERLAY -->
+<div id="glitchOverlay">
+  <div class="binaryRain" id="binaryRain"></div>
+  <div class="glitchText">
+    THIS SITE HACKED BY PROJECT GREEN LIGHT
+  </div>
+</div>
+
+<script>
+function triggerGlitch() {
+  var overlay = document.getElementById("glitchOverlay");
+  var rain = document.getElementById("binaryRain");
+
+  overlay.style.display = "block";
+
+  var binary = "";
+  for (var i = 0; i < 5000; i++) {
+    binary += Math.random() > 0.5 ? "1" : "0";
+    if (i % 80 === 0) binary += "<br>";
+  }
+
+  rain.innerHTML = binary;
+
+  setTimeout(function() {
+    overlay.style.display = "none";
+  }, 5000);
+}
+
+// Trigger glitch after short delay
+setTimeout(triggerGlitch, 2500);
+</script>
+
 </body>
 </html>
