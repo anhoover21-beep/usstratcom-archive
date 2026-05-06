@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recovered Archive Materials</title>
+<title>Greenlight Archive Node</title>
 
 <style>
 body {
   margin: 0;
-  background-color: #0e0e0e;
+  background-color: #0a0a0a;
   font-family: Arial, Helvetica, sans-serif;
-  color: #ddd;
+  color: #cfd3da;
 }
 
 .header {
-  background: #000;
-  padding: 20px;
+  padding: 18px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 2px;
-  color: #ff4444;
+  color: #8a8f98;
+  border-bottom: 1px solid #1a1a1a;
 }
 
 .container {
@@ -29,11 +29,12 @@ body {
 }
 
 .warning {
-  background: #1a1a1a;
+  background: #111;
   padding: 15px;
-  border-left: 4px solid #ff4444;
-  font-size: 13px;
+  border-left: 3px solid #2a2f36;
+  font-size: 12px;
   margin-bottom: 30px;
+  color: #9aa0a6;
 }
 
 .grid {
@@ -62,14 +63,14 @@ body {
 .thumb img {
   width: 100%;
   display: block;
-  filter: contrast(1.05) brightness(0.95);
+  filter: grayscale(100%) contrast(1.1);
 }
 
 .footer {
   margin-top: 50px;
   text-align: center;
   font-size: 11px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 /* MODAL */
@@ -83,7 +84,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.95);
+  background-color: rgba(0,0,0,0.96);
   box-sizing: border-box;
 }
 
@@ -98,8 +99,8 @@ body {
   position: absolute;
   top: 20px;
   right: 25px;
-  font-size: 24px;
-  color: white;
+  font-size: 20px;
+  color: #aaa;
   cursor: pointer;
 }
 </style>
@@ -108,68 +109,37 @@ body {
 <body>
 
 <div class="header">
-RECOVERED INTERNAL MATERIALS – SOURCE UNDISCLOSED
+GREENLIGHT ARCHIVE // VISUAL INDEX // UNVERIFIED MATERIAL
 </div>
 
 <div class="container">
 
 <div class="warning">
-These images were captured prior to purge protocol execution.
-File cabinet access lasted approximately 47 seconds.
-Some markings may not be fully legible.
+Recovered prior to sanitization.<br>
+Context not provided.
 </div>
 
 <div class="grid">
 
-  <div class="thumb">
-    <img src="01_Incident_Report.png" onclick="openModal(this.src)">
-  </div>
+  <div class="thumb"><img src="01_Incident_Report.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="02_Wreckage_Photos.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="03_Cargo_Manifest.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="04_Security_Memo.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="05_Field_Sketch.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="06_Photo_of_Photos.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="07_Team_Roster.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="08_Radiological_Scan.png" onclick="openModal(this.src)"></div>
 
-  <div class="thumb">
-    <img src="02_Wreckage_Photos.png" onclick="openModal(this.src)">
-  </div>
+  <!-- RENAMED subtly -->
+  <div class="thumb"><img src="09_Biological_Log.png" onclick="openModal(this.src)"></div>
+  <div class="thumb"><img src="10_Medical_Imaging.png" onclick="openModal(this.src)"></div>
 
-  <div class="thumb">
-    <img src="03_Cargo_Manifest.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="04_Security_Memo.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="05_Field_Sketch.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="06_Photo_of_Photos.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="07_Team_Roster.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="08_Radiological_Scan.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="09_Autopsy_Report.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="10_Autopsy_Photos.png" onclick="openModal(this.src)">
-  </div>
-
-  <div class="thumb">
-    <img src="11_Directive_Cover.png" onclick="openModal(this.src)">
-  </div>
+  <div class="thumb"><img src="11_Directive_Cover.png" onclick="openModal(this.src)"></div>
 
 </div>
 
 <div class="footer">
-Distribution of these materials is not authorized.<br>
-Further releases pending verification.
+Interpretation is not provided.
 </div>
 
 </div>
@@ -185,8 +155,6 @@ Further releases pending verification.
 function openModal(src) {
   document.getElementById("modalImage").src = src;
   document.getElementById("imageModal").style.display = "block";
-
-  // Push a history state so back button closes modal first
   history.pushState({modalOpen: true}, "");
 }
 
@@ -194,8 +162,7 @@ function closeModal() {
   document.getElementById("imageModal").style.display = "none";
 }
 
-// Handle mobile back button
-window.onpopstate = function(event) {
+window.onpopstate = function() {
   const modal = document.getElementById("imageModal");
   if (modal.style.display === "block") {
     modal.style.display = "none";
