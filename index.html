@@ -85,6 +85,7 @@
       color: #002868;
       font-weight: bold;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .notice a:hover {
@@ -98,6 +99,67 @@
       text-align: center;
       color: #666;
     }
+
+    /* ============================= */
+    /* AMBER MODAL                  */
+    /* ============================= */
+
+    #amberModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .amber-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.65);
+    }
+
+    .amber-box {
+      position: relative;
+      width: 420px;
+      margin: 12% auto;
+      background: #ffffff;
+      padding: 30px;
+      border: 1px solid #d6d9df;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    }
+
+    .amber-header {
+      font-size: 16px;
+      font-weight: bold;
+      color: #002868;
+      margin-bottom: 20px;
+    }
+
+    .amber-warning {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    #amberInput {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cfd3da;
+      font-size: 14px;
+    }
+
+    #amberError {
+      display: none;
+      color: #b00020;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
   </style>
 </head>
 
@@ -169,8 +231,11 @@
     <strong>Supplemental Materials – Restricted</strong><br><br>
     Certain archival materials related to early surveillance initiatives remain
     limited distribution under Title 50 U.S.C.<br><br>
-    <a href="amber.html">Limited Distribution Archive
-      LEVEL 2 CLEARANCE REQUIRED</a>
+
+    <a id="amberTrigger">
+      Limited Distribution Archive<br>
+      LEVEL 2 CLEARANCE REQUIRED
+    </a>
   </div>
 
 </div>
@@ -179,6 +244,52 @@
   United States Strategic Command – Public Information Archive<br>
   Content provided for historical and educational reference.
 </footer>
+
+<!-- AMBER MODAL -->
+<div id="amberModal">
+  <div class="amber-overlay"></div>
+
+  <div class="amber-box">
+    <div class="amber-header">RESTRICTED ACCESS</div>
+
+    <div class="amber-warning">
+      Under penalty of federal law, access is prohibited unless authorized pursuant to:
+      <br><br>
+      Section P-55<br>
+      Article L-15<br>
+      Sub-section W-12
+    </div>
+
+    <input type="password" id="amberInput" placeholder="Enter AMBER clearance credential">
+
+    <div id="amberError">Invalid credential</div>
+  </div>
+</div>
+
+<script>
+const trigger = document.getElementById('amberTrigger');
+const modal = document.getElementById('amberModal');
+const input = document.getElementById('amberInput');
+const error = document.getElementById('amberError');
+
+trigger.addEventListener('click', function() {
+  modal.style.display = 'block';
+  input.focus();
+});
+
+input.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    const value = input.value.trim().toUpperCase();
+
+    if (value === "PROJECT MOGUL") {
+      window.location.href = "amber.html";
+    } else {
+      error.style.display = 'block';
+      input.value = "";
+    }
+  }
+});
+</script>
 
 </body>
 </html>
