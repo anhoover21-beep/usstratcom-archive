@@ -23,40 +23,54 @@ body {
   line-height: 1.7;
 }
 
-/* Badge inline (NOT a box) */
+/* ========================= */
+/* BADGE (UPGRADED)          */
+/* ========================= */
+
 .badge-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 25px;
+  gap: 14px;
+  margin-top: 30px;
 }
 
 .badge-img {
-  width: 28px;
-  height: 28px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
-  filter: drop-shadow(0 0 4px #00ff00);
+  filter: drop-shadow(0 0 8px #00ff00);
 }
 
-.badge-text {
+.badge-title {
+  font-size: 16px;
   color: #00ff00;
 }
 
-/* Terminal-style action */
-.proceed {
+.badge-sub {
+  font-size: 13px;
+  color: #00cc00;
+}
+
+/* ========================= */
+/* BUTTON (NOTICEABLE)       */
+/* ========================= */
+
+.proceed-btn {
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 35px;
+  padding: 14px 20px;
+  border: 1px solid #00ff00;
   color: #00ff00;
   text-decoration: none;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.proceed::before {
-  content: "> ";
+.proceed-btn:hover {
+  background: #001a00;
+  box-shadow: 0 0 10px #00ff00;
 }
 
-.proceed:hover {
-  text-decoration: underline;
-}
 </style>
 </head>
 
@@ -73,12 +87,16 @@ Your interpretation diverges from the issued narrative.<br><br>
 
 <div class="badge-row">
   <img src="codecracker.png" class="badge-img">
-  <span class="badge-text">CODE CRACKER STATUS: CONFIRMED</span>
+  <div>
+    <div class="badge-title">CODE CRACKER STATUS: CONFIRMED</div>
+    <div class="badge-sub">Clearance Level: Unverified</div>
+  </div>
 </div>
 
-<div class="badge-text">Clearance Level: Unverified</div>
-
-<a href="spyphotos.html" class="proceed">Proceed</a>
+<a href="spyphotos.html" class="proceed-btn">
+  Codecracker status earned.<br>
+  Permission to proceed
+</a>
 
 </div>
 
