@@ -24,26 +24,26 @@ body {
 }
 
 /* ========================= */
-/* BADGE (UPGRADED)          */
+/* BADGE (STRONGER)          */
 /* ========================= */
 
 .badge-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 30px;
+  gap: 16px;
+  margin-top: 35px;
 }
 
 .badge-img {
-  width: 52px;
-  height: 52px;
+  width: 72px;                 /* 🔥 bigger */
+  height: 72px;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px #00ff00);
+  filter: drop-shadow(0 0 12px #00ff00);
 }
 
 .badge-title {
   font-size: 16px;
-  color: #00ff00;
+  letter-spacing: 1px;
 }
 
 .badge-sub {
@@ -52,23 +52,38 @@ body {
 }
 
 /* ========================= */
-/* BUTTON (NOTICEABLE)       */
+/* TERMINAL ACTION (FIXED)   */
 /* ========================= */
 
-.proceed-btn {
+.proceed {
   display: inline-block;
-  margin-top: 35px;
-  padding: 14px 20px;
-  border: 1px solid #00ff00;
+  margin-top: 40px;
   color: #00ff00;
   text-decoration: none;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  letter-spacing: 1px;
 }
 
-.proceed-btn:hover {
-  background: #001a00;
-  box-shadow: 0 0 10px #00ff00;
+/* command prefix */
+.proceed::before {
+  content: "> ";
+}
+
+/* hover = subtle, not UI */
+.proceed:hover {
+  text-shadow: 0 0 8px #00ff00;
+}
+
+/* blinking cursor after link */
+.proceed::after {
+  content: "_";
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
 
 </style>
@@ -93,9 +108,8 @@ Your interpretation diverges from the issued narrative.<br><br>
   </div>
 </div>
 
-<a href="spyphotos.html" class="proceed-btn">
-  Codecracker status earned.<br>
-  Permission to proceed
+<a href="spyphotos.html" class="proceed">
+Codecracker status earned. Permission to proceed
 </a>
 
 </div>
