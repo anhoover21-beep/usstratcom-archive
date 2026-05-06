@@ -8,8 +8,8 @@
 body {
   margin: 0;
   background: #000;
-  color: #cfd3da;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #00ff00;
+  font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,31 +18,44 @@ body {
 
 .container {
   max-width: 520px;
-  text-align: left;
-  font-size: 13px;
-  line-height: 1.6;
+  width: 90%;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
-.badge {
+/* Badge inline (NOT a box) */
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-top: 25px;
-  padding: 12px;
-  border: 1px solid #2a2f36;
-  font-size: 12px;
-  color: #9aa0a6;
 }
 
-.button {
-  margin-top: 30px;
+.badge-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px #00ff00);
+}
+
+.badge-text {
+  color: #00ff00;
+}
+
+/* Terminal-style action */
+.proceed {
   display: inline-block;
-  padding: 10px 18px;
-  border: 1px solid #444;
-  color: #cfd3da;
+  margin-top: 30px;
+  color: #00ff00;
   text-decoration: none;
-  font-size: 12px;
 }
 
-.button:hover {
-  background: #111;
+.proceed::before {
+  content: "> ";
+}
+
+.proceed:hover {
+  text-decoration: underline;
 }
 </style>
 </head>
@@ -58,12 +71,14 @@ Accepted by alternate layer.<br><br>
 
 Your interpretation diverges from the issued narrative.<br><br>
 
-<div class="badge">
-CODE CRACKER BADGE UNLOCKED<br>
-Clearance Level: Unverified
+<div class="badge-row">
+  <img src="codecracker.png" class="badge-img">
+  <span class="badge-text">CODE CRACKER STATUS: CONFIRMED</span>
 </div>
 
-<a href="spyphotos.html" class="button">Proceed</a>
+<div class="badge-text">Clearance Level: Unverified</div>
+
+<a href="spyphotos.html" class="proceed">Proceed</a>
 
 </div>
 
