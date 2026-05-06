@@ -17,14 +17,24 @@ body {
 }
 
 .container {
-  max-width: 520px;
+  max-width: 560px;
   width: 90%;
   font-size: 14px;
   line-height: 1.7;
 }
 
 /* ========================= */
-/* BADGE (STRONGER)          */
+/* HERO HEADER               */
+/* ========================= */
+
+.hero {
+  font-size: 26px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* ========================= */
+/* BADGE                     */
 /* ========================= */
 
 .badge-row {
@@ -35,7 +45,7 @@ body {
 }
 
 .badge-img {
-  width: 72px;                 /* 🔥 bigger */
+  width: 72px;
   height: 72px;
   object-fit: contain;
   filter: drop-shadow(0 0 12px #00ff00);
@@ -43,7 +53,6 @@ body {
 
 .badge-title {
   font-size: 16px;
-  letter-spacing: 1px;
 }
 
 .badge-sub {
@@ -52,30 +61,16 @@ body {
 }
 
 /* ========================= */
-/* TERMINAL ACTION (FIXED)   */
+/* TERMINAL TEXT             */
 /* ========================= */
 
-.proceed {
-  display: inline-block;
+.proceed-text {
   margin-top: 40px;
-  color: #00ff00;
-  text-decoration: none;
   font-size: 15px;
-  letter-spacing: 1px;
 }
 
-/* command prefix */
-.proceed::before {
-  content: "> ";
-}
-
-/* hover = subtle, not UI */
-.proceed:hover {
-  text-shadow: 0 0 8px #00ff00;
-}
-
-/* blinking cursor after link */
-.proceed::after {
+/* blinking cursor */
+.cursor::after {
   content: "_";
   margin-left: 4px;
   animation: blink 1s infinite;
@@ -86,12 +81,35 @@ body {
   25%, 75% { opacity: 0; }
 }
 
+/* ========================= */
+/* ENTER BUTTON              */
+/* ========================= */
+
+.enter-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 18px;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.enter-btn:hover {
+  background: #001a00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="container">
+
+<div class="hero">
+WELCOME TO PROJECT GREENLIGHT
+</div>
 
 Access acknowledged.<br><br>
 
@@ -108,8 +126,12 @@ Your interpretation diverges from the issued narrative.<br><br>
   </div>
 </div>
 
-<a href="spyphotos.html" class="proceed">
+<div class="proceed-text cursor">
 Codecracker status earned. Permission to proceed
+</div>
+
+<a href="spyphotos.html" class="enter-btn">
+ENTER
 </a>
 
 </div>
